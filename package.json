@@ -2,6 +2,7 @@
   "name": "ramps-provider-logo-tester",
   "version": "1.0.0",
   "description": "",
+  "license": "MIT",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -13,6 +14,9 @@
   "devDependencies": {
     "@babel/runtime": "7.13.8",
     "typescript": "4.1.3"
+  },
+  "engines": {
+    "node": "16"
   },
   "scripts": {
     "start": "react-scripts start",
