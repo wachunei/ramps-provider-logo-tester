@@ -6,18 +6,14 @@ import iDark from "./images/i_dark.png";
 import iLight from "./images/i_light.png";
 
 export default function Quote({ highlighted, example }) {
-  const {
-    darkMode,
-    showQuoteDetails,
-    darkModeSrc,
-    lightModeSrc
-  } = usePanelValues();
+  const { darkMode, showQuoteDetails, darkModeSrc, lightModeSrc } =
+    usePanelValues();
   const testLogo = darkMode ? darkModeSrc : lightModeSrc;
   const exampleLogo = useExampleLogo(example);
   return (
     <div
       className={cx("quote", {
-        highlighted
+        highlighted,
       })}
     >
       <div className={cx("row", "title", { dark: darkMode })}>
@@ -29,7 +25,7 @@ export default function Quote({ highlighted, example }) {
           )}
 
           <img
-            class="info-icon"
+            className="info-icon"
             alt="info-icon"
             src={darkMode ? iDark : iLight}
             width="11"
