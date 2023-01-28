@@ -14,10 +14,13 @@ body {
 }
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   flex: 1;
   font-family: "Figtree", serif, sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: stretch;
+}
+.App.reversed {
+  flex-direction: row-reverse;
 }
