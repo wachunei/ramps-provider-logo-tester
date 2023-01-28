@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+}
+
+.App {
+  height: 100vh;
+  flex: 1;
+  font-family: "Figtree", serif, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}

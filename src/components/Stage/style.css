@@ -1,0 +1,20 @@
+#stage {
+  background-color: #f9f9f9;
+  flex: 4;
+  display: flex;
+  min-width: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+#device-box {
+  width: 393px;
+  height: 700px;
+  padding: 15px;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+#device-box.dark {
+  background-color: #24272a;
+}
