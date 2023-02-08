@@ -3,6 +3,7 @@ import moonpay from "./moonpay";
 import transak from "./transak";
 import banxa from "./banxa";
 import onrampdotmoney from "./onrampdotmoney";
+import mercuryo from "./mercuryo";
 
 export default {
   wyre,
@@ -10,4 +11,5 @@ export default {
   transak,
   banxa,
   onrampdotmoney,
+  mercuryo,
 };
