@@ -19,6 +19,7 @@ export default function App() {
         <Quote example="wyre" />
         <Quote example="moonpay" />
         <Quote example="transak" />
+        <Quote example="banxa" />
       </Stage>
     </div>
   );
