@@ -22,7 +22,7 @@ export const PanelContextProvider = ({ value, ...props }) => {
     false
   );
   const [darkMode, setDarkMode] = useState(false);
-  const [showQuoteDetails, setShowQuoteDetails] = useState(true);
+  const [showQuoteDetails, setShowQuoteDetails] = useState(false);
   const [darkModeSrc, setDarkModeSrc] = useState();
   const [lightModeSrc, setLightModeSrc] = useState();
 

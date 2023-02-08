@@ -20,6 +20,7 @@ export default function App() {
         <Quote example="moonpay" />
         <Quote example="transak" />
         <Quote example="banxa" />
+        <Quote example="onrampdotmoney" />
       </Stage>
     </div>
   );
