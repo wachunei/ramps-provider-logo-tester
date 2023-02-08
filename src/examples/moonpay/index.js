@@ -1,9 +1,9 @@
-import dark from "./images/moonpay_white.png";
-import light from "./images/moonpay.png";
+import dark from "./images/moonpay_dark.png";
+import light from "./images/moonpay_light.png";
 
 export default {
   dark,
   light,
-  width: 125,
-  height: 24
+  width: 88,
+  height: 24,
 };

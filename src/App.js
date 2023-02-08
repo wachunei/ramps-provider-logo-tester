@@ -19,6 +19,10 @@ export default function App() {
         <Quote example="wyre" />
         <Quote example="moonpay" />
         <Quote example="transak" />
+        <Quote example="banxa" />
+        <Quote example="onrampdotmoney" />
+        <Quote example="mercuryo" />
+        <Quote example="sardine" />
       </Stage>
     </div>
   );

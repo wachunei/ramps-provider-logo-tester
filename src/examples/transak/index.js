@@ -1,9 +1,9 @@
-import dark from "./images/transak_white.png";
-import light from "./images/transak.png";
+import dark from "./images/transak_dark.png";
+import light from "./images/transak_light.png";
 
 export default {
   dark,
   light,
-  width: 125,
-  height: 24
+  width: 90,
+  height: 24,
 };
