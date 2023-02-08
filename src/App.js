@@ -22,6 +22,7 @@ export default function App() {
         <Quote example="banxa" />
         <Quote example="onrampdotmoney" />
         <Quote example="mercuryo" />
+        <Quote example="sardine" />
       </Stage>
     </div>
   );

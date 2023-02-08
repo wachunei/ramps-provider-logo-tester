@@ -4,6 +4,7 @@ import transak from "./transak";
 import banxa from "./banxa";
 import onrampdotmoney from "./onrampdotmoney";
 import mercuryo from "./mercuryo";
+import sardine from "./sardine";
 
 export default {
   wyre,
@@ -12,4 +13,5 @@ export default {
   banxa,
   onrampdotmoney,
   mercuryo,
+  sardine,
 };
