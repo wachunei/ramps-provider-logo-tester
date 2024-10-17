@@ -1,7 +1,7 @@
-import examples from "../examples";
+import examples from "../examples/providers";
 import usePanelValues from "./usePanelValues";
 
-export default function useExampleLogo(name) {
+export default function useExampleProviderLogo(name) {
   const example = examples[name];
   const { darkMode } = usePanelValues();
   const defaultExample = {

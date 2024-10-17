@@ -16,11 +16,22 @@ function fileToDataURI(file) {
   });
 }
 
+const STAGES = {
+  QUOTES: "QUOTES",
+  PAYMENTS: "PAYMENTS",
+};
+
 export const PanelContextProvider = ({ value, ...props }) => {
   const [reverseUI, setReverseUI] = useLocalStorage(
     "mm-ramps-logo-tester-reverseUI",
     false
   );
+
+  const [selectedStage, setSelectedStage] = useLocalStorage(
+    "mm-ramps-logo-tester-selectedStage",
+    STAGES.QUOTES
+  );
+
   const [darkMode, setDarkMode] = useState(false);
   const [showQuoteDetails, setShowQuoteDetails] = useState(false);
   const [darkModeSrc, setDarkModeSrc] = useState();
@@ -59,6 +70,8 @@ export const PanelContextProvider = ({ value, ...props }) => {
 
   const panelContextValue = {
     reverseUI,
+    selectedStage,
+    setSelectedStage,
     setReverseUI,
     darkMode,
     setDarkMode,
