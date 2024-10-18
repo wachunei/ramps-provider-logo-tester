@@ -1,6 +1,6 @@
 .box {
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-color: #bbc0c5;
   border-radius: 8px;
   padding: 16px;
@@ -9,5 +9,5 @@
 }
 
 .box.highlighted {
-  border: 2px solid #037dd6;
+  border: 1px solid #037dd6;
 }

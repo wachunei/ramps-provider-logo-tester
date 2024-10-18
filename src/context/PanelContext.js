@@ -34,6 +34,7 @@ export const PanelContextProvider = ({ value, ...props }) => {
 
   const [darkMode, setDarkMode] = useState(false);
   const [showQuoteDetails, setShowQuoteDetails] = useState(false);
+  const [showCompactPayment, setShowCompactPayment] = useState(false);
   const [darkModeSrc, setDarkModeSrc] = useState();
   const [lightModeSrc, setLightModeSrc] = useState();
 
@@ -77,6 +78,8 @@ export const PanelContextProvider = ({ value, ...props }) => {
     setDarkMode,
     showQuoteDetails,
     setShowQuoteDetails,
+    showCompactPayment,
+    setShowCompactPayment,
     darkModeSrc,
     clearDarkModeSrc,
     handleDarkModeFileChange,

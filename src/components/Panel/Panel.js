@@ -11,12 +11,16 @@ export default function Panel() {
     setDarkMode,
     showQuoteDetails,
     setShowQuoteDetails,
+    showCompactPayment,
+    setShowCompactPayment,
   } = usePanelValues();
 
   return (
     <div id="side-panel">
       <div className="panel-section">
-        <h2>MetaMask Ramps Provider Logo Tester</h2>{" "}
+        <h2>MetaMask Ramps</h2>
+        {selectedStage === "QUOTES" && <h3>Provider Logo Tester</h3>}
+        {selectedStage === "PAYMENTS" && <h3>Payment Method Tester</h3>}
         <select
           onChange={(e) => setSelectedStage(e.target.value)}
           value={selectedStage}
@@ -48,6 +52,16 @@ export default function Panel() {
                 onChange={(e) => setShowQuoteDetails(e.target.checked)}
               />
               Show quote details
+            </label>
+          )}
+          {selectedStage === "PAYMENTS" && (
+            <label>
+              <input
+                type="checkbox"
+                checked={showCompactPayment}
+                onChange={(e) => setShowCompactPayment(e.target.checked)}
+              />
+              Show compact
             </label>
           )}
         </div>
