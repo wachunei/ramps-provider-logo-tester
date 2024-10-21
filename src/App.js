@@ -30,7 +30,7 @@ export default function App() {
         ) : null}
         {selectedStage === "PAYMENTS" ? (
           <>
-            <PaymentMethod highlighted />
+            <PaymentMethod highlighted example="tester" />
             <PaymentMethod example="applePay" />
             <PaymentMethod example="debitCredit" />
             <PaymentMethod example="instantAch" />

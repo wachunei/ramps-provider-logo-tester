@@ -3,19 +3,6 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 export const PanelContext = React.createContext({});
 
-function fileToDataURI(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      resolve(e.target.result);
-    };
-    reader.onerror = (e) => {
-      reject(e);
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
 const STAGES = {
   QUOTES: "QUOTES",
   PAYMENTS: "PAYMENTS",
@@ -37,37 +24,7 @@ export const PanelContextProvider = ({ value, ...props }) => {
   const [showCompactPayment, setShowCompactPayment] = useState(false);
   const [darkModeSrc, setDarkModeSrc] = useState();
   const [lightModeSrc, setLightModeSrc] = useState();
-
-  const handleDarkModeFileChange = useCallback(async (e) => {
-    const file = e.target.files[0];
-    const darkModeSrc = await fileToDataURI(file);
-    setDarkModeSrc(darkModeSrc);
-    if (e.target.files[1] && !lightModeSrc) {
-      const lightModeSrc = await fileToDataURI(e.target.files[1]);
-      setLightModeSrc(lightModeSrc);
-    }
-  }, []);
-
-  const handleLightModeFileChange = useCallback(async (e) => {
-    const file = e.target.files[0];
-    const lightModeSrc = await fileToDataURI(file);
-    setLightModeSrc(lightModeSrc);
-    if (e.target.files[1] && !darkModeSrc) {
-      const darkModeSrc = await fileToDataURI(e.target.files[1]);
-      setDarkModeSrc(darkModeSrc);
-    }
-  }, []);
-
-  const clearDarkModeSrc = useCallback(() => setDarkModeSrc(), []);
-  const clearLightModeSrc = useCallback(() => setLightModeSrc(), []);
-  const clearSrcs = useCallback(() => {
-    clearDarkModeSrc();
-    clearLightModeSrc();
-  }, [clearDarkModeSrc, clearLightModeSrc]);
-  const toggleSrcs = useCallback(() => {
-    setDarkModeSrc(lightModeSrc);
-    setLightModeSrc(darkModeSrc);
-  }, [darkModeSrc, lightModeSrc]);
+  const [paymentBadges, setPaymentBadges] = useState([[null, null]]);
 
   const panelContextValue = {
     reverseUI,
@@ -81,13 +38,11 @@ export const PanelContextProvider = ({ value, ...props }) => {
     showCompactPayment,
     setShowCompactPayment,
     darkModeSrc,
-    clearDarkModeSrc,
-    handleDarkModeFileChange,
+    setDarkModeSrc,
     lightModeSrc,
-    clearLightModeSrc,
-    handleLightModeFileChange,
-    toggleSrcs,
-    clearSrcs,
+    setLightModeSrc,
+    paymentBadges,
+    setPaymentBadges,
   };
 
   return (

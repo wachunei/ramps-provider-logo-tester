@@ -1,19 +1,12 @@
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import usePanelValues from "../../hooks/usePanelValues";
+import { fileToDataURI } from "../../utils";
 import "./style.css";
 
 export default function QuotesPanel() {
-  const {
-    lightModeSrc,
-    darkModeSrc,
-    clearLightModeSrc,
-    clearDarkModeSrc,
-    handleLightModeFileChange,
-    handleDarkModeFileChange,
-    toggleSrcs,
-    clearSrcs,
-  } = usePanelValues();
+  const { lightModeSrc, darkModeSrc, setDarkModeSrc, setLightModeSrc } =
+    usePanelValues();
 
   const lightSrcRef = useRef();
   const darkSrcRef = useRef();
@@ -28,6 +21,37 @@ export default function QuotesPanel() {
   if (!darkModeSrc && darkSrcLoaded) {
     setDarkSrcLoaded(false);
   }
+
+  const handleDarkModeFileChange = useCallback(async (e) => {
+    const file = e.target.files[0];
+    const darkModeSrc = await fileToDataURI(file);
+    setDarkModeSrc(darkModeSrc);
+    if (e.target.files[1] && !lightModeSrc) {
+      const lightModeSrc = await fileToDataURI(e.target.files[1]);
+      setLightModeSrc(lightModeSrc);
+    }
+  }, []);
+
+  const handleLightModeFileChange = useCallback(async (e) => {
+    const file = e.target.files[0];
+    const lightModeSrc = await fileToDataURI(file);
+    setLightModeSrc(lightModeSrc);
+    if (e.target.files[1] && !darkModeSrc) {
+      const darkModeSrc = await fileToDataURI(e.target.files[1]);
+      setDarkModeSrc(darkModeSrc);
+    }
+  }, []);
+
+  const clearDarkModeSrc = useCallback(() => setDarkModeSrc(), []);
+  const clearLightModeSrc = useCallback(() => setLightModeSrc(), []);
+  const clearSrcs = useCallback(() => {
+    clearDarkModeSrc();
+    clearLightModeSrc();
+  }, [clearDarkModeSrc, clearLightModeSrc]);
+  const toggleSrcs = useCallback(() => {
+    setDarkModeSrc(lightModeSrc);
+    setLightModeSrc(darkModeSrc);
+  }, [darkModeSrc, lightModeSrc]);
 
   const sizes = useMemo(() => {
     if (

@@ -1,6 +1,7 @@
 import "./style.css";
 import QuotesPanel from "./QuotesPanel";
 import usePanelValues from "../../hooks/usePanelValues";
+import PaymentsPanel from "./PaymentsPanel";
 
 export default function Panel() {
   const {
@@ -67,6 +68,7 @@ export default function Panel() {
         </div>
       </div>
       {selectedStage === "QUOTES" && <QuotesPanel />}
+      {selectedStage === "PAYMENTS" && <PaymentsPanel />}
     </div>
   );
 }
