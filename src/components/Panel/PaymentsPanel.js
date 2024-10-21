@@ -20,7 +20,6 @@ export default function PaymentsPanel() {
       const src = await fileToDataURI(file);
       const indexToUpdate = mode === "light" ? 0 : 1;
       const otherIndex = 1 - indexToUpdate;
-      debugger;
       let otherSrc = paymentBadges[index][otherIndex];
       if (event.target.files[1] && !otherSrc) {
         otherSrc = await fileToDataURI(event.target.files[1]);
