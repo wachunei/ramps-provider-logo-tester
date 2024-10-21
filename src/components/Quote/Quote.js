@@ -1,21 +1,18 @@
 import "./style.css";
 import cx from "classnames";
-import useExampleLogo from "../../hooks/useExampleLogo";
+import useExampleProviderLogo from "../../hooks/useExampleProviderLogo";
 import usePanelValues from "../../hooks/usePanelValues";
 import iDark from "./images/i_dark.png";
 import iLight from "./images/i_light.png";
+import Box from "../Box/Box";
 
 export default function Quote({ highlighted, example }) {
   const { darkMode, showQuoteDetails, darkModeSrc, lightModeSrc } =
     usePanelValues();
   const testLogo = darkMode ? darkModeSrc : lightModeSrc;
-  const exampleLogo = useExampleLogo(example);
+  const exampleLogo = useExampleProviderLogo(example);
   return (
-    <div
-      className={cx("quote", {
-        highlighted,
-      })}
-    >
+    <Box highlighted={highlighted}>
       <div className={cx("row", "title", { dark: darkMode })}>
         <div className="row-left">
           {Boolean(!example && testLogo) ? (
@@ -57,6 +54,6 @@ export default function Quote({ highlighted, example }) {
           </div>
         </>
       ) : null}
-    </div>
+    </Box>
   );
 }
